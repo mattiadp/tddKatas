@@ -86,5 +86,16 @@ namespace TddKatalibTests
             int result = calculator.Add(numbers);
             Assert.AreEqual(3, result, 0.0, "Add Function not return sum with two numbers");
         }
+
+
+        [TestMethod]
+        public void Add_Numbers_multycharater_between_nunmbers()
+        {
+            string numbers = "//;;\n1;;2;;1005";
+            StringCalculator calculator = new StringCalculator();
+            int result = calculator.Add(numbers);
+            Assert.AreEqual(3, result, 0.0, "Add Function not return sum with two numbers");
+        }
+
     }
 }

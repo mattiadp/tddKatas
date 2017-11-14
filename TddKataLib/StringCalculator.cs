@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace TddKataLib
                 return 0;
             else
             {
-                char[] delimeters = getDelimiters(numbers);
+                string[] delimeters = getDelimiters(numbers);
                 numbers = getOnlyNumberList(numbers);
-                string[] numbersArray = numbers.Split(delimeters);
+                string[] numbersArray = numbers.Split(delimeters, StringSplitOptions.None);
 
                 int sum = 0;
                 string negativeNumbers = "";
@@ -40,14 +41,16 @@ namespace TddKataLib
             }
         }
 
-        private char[] getDelimiters(string numbers)
+        private string[] getDelimiters(string numbers)
         {
             if (numbers.StartsWith("//"))
             {
-                return new char[] { numbers[2] };
+                Regex headerexpression = new Regex("(?<=//)(.*)(?=\n)");
+                string delimeters = headerexpression.Match(numbers).Value;
+                return new string[] { delimeters };
             }
             else 
-                return new char[] { ',', '\n' };
+                return new string[] { ",", "\n" };
         }
 
         string getOnlyNumberList(string numbers)
