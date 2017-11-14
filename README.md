@@ -10,5 +10,5 @@ Build project, and run test by click Run -> All test on "Test" menu.
 # Exercises
 
 ## String Calulator
-solved in TddKataLib\StringCalculator.cs
+solved in TddKataLib\StringCalculator.cs  
 TDD Kata- an exercise in coding, refactoring and test-first, you can read the exercise on http://osherove.com/tdd-kata-1/
