@@ -97,5 +97,15 @@ namespace TddKatalibTests
             Assert.AreEqual(3, result, 0.0, "Add Function not return sum with two numbers");
         }
 
+
+        [TestMethod]
+        public void Add_Numbers_with_multyDelimiters()
+        {
+            string numbers = "//[;;][,]\n1;;2,1005";
+            StringCalculator calculator = new StringCalculator();
+            int result = calculator.Add(numbers);
+            Assert.AreEqual(3, result, 0.0, "Add Function not return sum with two numbers");
+        }
+
     }
 }
