@@ -21,7 +21,8 @@ namespace TddKataLib
             else
             {
                 string[] delimeters = getDelimiters(numbers);
-                numbers = getOnlyNumberList(numbers);
+                numbers
+                    = getOnlyNumberList(numbers);
                 string[] numbersArray = numbers.Split(delimeters, StringSplitOptions.None);
                 int sum = 0;
                 string negativeNumbers = "";
@@ -83,7 +84,11 @@ namespace TddKataLib
         private string getOnlyNumberList(string numbers)
         {
             Regex header = new Regex(@"(?<=\n)(.*)");
-            return  header.Match(numbers).ToString();
+            string output = header.Match(numbers).ToString();
+            if (output == "")
+                return numbers;
+            else
+                return output;
         }
     }
 }
